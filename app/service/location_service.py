@@ -6,8 +6,9 @@ from app.model.location import PetLocation
 from geoalchemy2.elements import WKBElement, WKTElement
 
 class LocationService:
-    def __init__(self, db_session: AsyncSession):
-        self.repository = LocationRepository(session=db_session)
+    
+    def __init__(self, repository: LocationRepository):
+        self.repository = repository
 
     async def upsert_location(
         self,
