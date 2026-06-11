@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from litestar.di import Provide
 from app.service.utility_service import UtilityService  
 from app.api.v1.utility_controller import UtilityController
+from app.core.exceptions import GLOBAL_EXCEPTION_HANDLERS
 
 async def provide_location_service(db_session: AsyncSession) -> LocationService:
     repo = LocationRepository(session=db_session)
@@ -25,5 +26,6 @@ app = Litestar(
         "location_service": Provide(provide_location_service),
         "utility_service": Provide(provide_utility_service)
     },
-    debug=True
+    exception_handlers=GLOBAL_EXCEPTION_HANDLERS,
+    debug=False
 )
