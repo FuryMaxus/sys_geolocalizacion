@@ -22,7 +22,7 @@ services:
     environment:
       - PORT=8004
       - DATABASE_URL=postgresql+asyncpg://user:geo_password@geo_db:5432/geo_db
-      - SECRET_KEY=clave_super_secreta
+      - SECRET_KEY="clave_secreta_secretita_:)"
     depends_on:
       geo_db:
         condition: service_healthy
