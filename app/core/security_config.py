@@ -16,7 +16,7 @@ s
 
 jwt_auth = OAuth2PasswordBearerAuth[dict](
     retrieve_user_handler=retrieve_user_handler,
-    token_secret=os.environ.get("SECRET_KEY", "clave_secreta_secretita_:)"),
+    token_secret=os.environ.get("SECRET_KEY", "EstaEsUnaClaveSuperSecretaYMuyLargaParaJWT12345"),
     token_url="http://localhost:8085/bff/auth/ingreso", 
     exclude=["/schema", "/docs", "/schema/swagger", "/schema/elements"]
 )
